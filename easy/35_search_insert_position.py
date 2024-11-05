@@ -22,3 +22,16 @@ def binary_search(nums, target):
     return end+1
 
 print(binary_search(nums,target))
+
+def binary_search_recursive(nums, target, start, end):
+    if end>= start:
+        mid = int((start+end)/2)
+        if nums[mid] == target:
+            return mid
+        if nums[mid] < target:
+            return binary_search_recursive(nums,target,mid+1, end)
+        else:
+            return binary_search_recursive(nums,target, start, mid-1)
+    return end+1
+
+print(binary_search_recursive(nums, target, 0, len(nums)-1))
